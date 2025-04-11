@@ -1,0 +1,95 @@
+Aquí tienes una lista de 20 ejercicios de Haskell, ordenados de más fácil a más difícil, basados en los ejemplos que proporcionaste. Estos ejercicios están diseñados para ayudarte a practicar conceptos como funciones básicas, manejo de listas, recursión, ordenamiento, y lógica, sin depender de funciones predefinidas como `odd`, `even`, etc., cuando no sea necesario. Cada ejercicio incluye una breve descripción y, en algunos casos, un hint para guiarte.
+
+### Ejercicios (de más fácil a más difícil)
+
+#### Nivel 1: Básicos (Funciones simples con listas y números)
+1. **Suma de una lista**: Crea una función que reciba una lista de números enteros y devuelva la suma de todos los elementos.  
+   *Ejemplo*: `sumaLista [1, 2, 3]` debería devolver `6`.  
+   *Hint*: Usa recursión o pattern matching.
+
+2. **Producto de una lista**: Crea una función que reciba una lista de números enteros y devuelva el producto de todos los elementos.  
+   *Ejemplo*: `productoLista [2, 3, 4]` debería devolver `24`.  
+   *Hint*: Similar a la suma, pero multiplicando.
+
+3. **Longitud de una lista**: Define una función que cuente cuántos elementos tiene una lista.  
+   *Ejemplo*: `longitud [1, 2, 3, 4]` debería devolver `4`.  
+   *Hint*: Usa recursión y pattern matching con listas vacías y no vacías.
+
+4. **Invertir una lista**: Crea una función que reciba una lista y devuelva una nueva lista con los elementos en orden inverso.  
+   *Ejemplo*: `invertir [1, 2, 3]` debería devolver `[3, 2, 1]`.  
+   *Hint*: Usa recursión y acumulación.
+
+5. **Concatenar dos listas**: Define una función que reciba dos listas y devuelva una nueva lista que contenga todos los elementos de ambas en orden.  
+   *Ejemplo*: `concatenar [1, 2] [3, 4]` debería devolver `[1, 2, 3, 4]`.  
+   *Hint*: Usa el operador `++` o recursión.
+
+#### Nivel 2: Filtrado y condiciones (Funciones con lógica simple)
+6. **Filtrar positivos**: Crea una función que reciba una lista de números enteros y devuelva una lista solo con los números positivos.  
+   *Ejemplo*: `filtrarPositivos [-1, 0, 1, 2, -3]` debería devolver `[1, 2]`.  
+   *Hint*: Usa recursión y compara cada elemento con 0.
+
+7. **Contar ocurrencias**: Define una función que reciba un número y una lista, y devuelva cuántas veces aparece ese número en la lista.  
+   *Ejemplo*: `contar 2 [1, 2, 2, 3, 2]` debería devolver `3`.  
+   *Hint*: Usa recursión y compara cada elemento.
+
+8. **Es par (sin funciones predefinidas)**: Crea una función que determine si un número entero es par (divisible entre 2) sin usar `even`.  
+   *Ejemplo*: `esPar 4` debería devolver `True`, y `esPar 7` debería devolver `False`.  
+   *Hint*: Usa el operador `mod` y verifica si el resto es 0.
+
+9. **Filtrar pares/impares**: Similar al ejercicio 1 que mencionaste, crea una función que reciba un entero (1 para impares, 2 para pares) y una lista, y devuelva solo los pares o impares según corresponda.  
+   *Ejemplo*: `filtrarParImpar 2 [1, 2, 3, 4, 5]` debería devolver `[2, 4]`.  
+   *Hint*: Usa la función `esPar` y recursión.
+
+10. **Está ordenada**: Como el ejercicio 2 que mencionaste, crea una función que reciba una lista y devuelva `True` si está ordenada de menor a mayor, `False` de lo contrario.  
+    *Ejemplo*: `estaOrdenada [1, 2, 3, 4]` debería devolver `True`.  
+    *Hint*: Compara elementos consecutivos.
+
+#### Nivel 3: Manipulación avanzada de listas (Combinación y ordenamiento)
+11. **Unir dos listas ordenadas**: Como el ejercicio 3 que mencionaste, define una función que reciba dos listas ordenadas y devuelva una lista ordenada con todos los elementos.  
+    *Ejemplo*: `unirOrdenado [1, 3, 5] [2, 4, 6]` debería devolver `[1, 2, 3, 4, 5, 6]`.  
+    *Hint*: Usa recursión y compara los primeros elementos de ambas listas.
+
+12. **Eliminar duplicados**: Crea una función que reciba una lista y devuelva una nueva lista sin elementos duplicados, manteniendo el orden original.  
+    *Ejemplo*: `eliminarDuplicados [1, 2, 2, 3, 4, 4]` debería devolver `[1, 2, 3, 4]`.  
+    *Hint*: Usa recursión y verifica si el elemento actual ya está en la lista resultante.
+
+13. **Rotar lista**: Define una función que reciba una lista y un número `n`, y rote la lista `n` posiciones a la derecha.  
+    *Ejemplo*: `rotar [1, 2, 3, 4] 2` debería devolver `[3, 4, 1, 2]`.  
+    *Hint*: Usa `take` y `drop`, o recursión.
+
+14. **Intercalar listas**: Crea una función que reciba dos listas del mismo tamaño y devuelva una nueva lista intercalando sus elementos.  
+    *Ejemplo*: `intercalar [1, 2] [3, 4]` debería devolver `[1, 3, 2, 4]`.  
+    *Hint*: Usa recursión y pattern matching para combinar los primeros elementos.
+
+15. **Encontrar máximo**: Define una función que reciba una lista no vacía de números y devuelva el valor máximo.  
+    *Ejemplo*: `maximo [3, 1, 4, 1, 5]` debería devolver `5`.  
+    *Hint*: Usa recursión y compara elementos consecutivos.
+
+#### Nivel 4: Problemas más complejos (Lógica y estructuras)
+16. **Pertenece a lista**: Como el ejercicio 4 que mencionaste, crea una función que reciba un número y una lista, y devuelva `True` si el número está en la lista, `False` de lo contrario.  
+    *Ejemplo*: `pertenece 3 [1, 2, 3, 4]` debería devolver `True`.  
+    *Hint*: Usa recursión y compara cada elemento.
+
+17. **Sublista**: Define una función que reciba dos listas y devuelva `True` si la segunda es una sublista de la primera.  
+    *Ejemplo*: `esSublista [2, 3] [1, 2, 3, 4]` debería devolver `True`.  
+    *Hint*: Usa recursión y verifica si cada segmento de la primera lista coincide con la segunda.
+
+18. **Longitud de camino**: Como el ejercicio 5 que mencionaste, crea una función que reciba una lista de pares de números (coordenadas) y calcule la longitud total del camino (distancia euclidiana entre puntos consecutivos).  
+    *Ejemplo*: `longitudCamino [(1,2), (4,6), (7,10)]` debería devolver una aproximación de la suma de distancias.  
+    *Hint*: Usa la fórmula de distancia euclidiana y recursión.
+
+19. **Palíndromo**: Define una función que reciba una lista y devuelva `True` si es un palíndromo (se lee igual de adelante hacia atrás).  
+    *Ejemplo*: `esPalindromo [1, 2, 2, 1]` debería devolver `True`.  
+    *Hint*: Compara la lista con su inversa.
+
+20. **Generar permutaciones**: Crea una función que reciba una lista y devuelva todas las permutaciones posibles de sus elementos.  
+    *Ejemplo*: `permutaciones [1, 2]` debería devolver `[[1, 2], [2, 1]]`.  
+    *Hint*: Usa recursión y combina sublistas.
+
+### Consejos generales para practicar
+- **Recursión**: La mayoría de estos ejercicios se resuelven con recursión y pattern matching. Practica descomponer problemas en casos base (lista vacía) y casos recursivos.
+- **Tipos**: Define claramente los tipos de tus funciones (por ejemplo, `:: Int -> [Int] -> Bool`) para evitar errores.
+- **Pruebas**: Prueba cada función con ejemplos pequeños antes de pasar a casos más complejos.
+- **Evita funciones predefinidas**: Cuando el ejercicio lo indique, escribe tu propia lógica en lugar de usar funciones como `filter`, `map`, etc.
+
+Si necesitas soluciones detalladas para alguno de estos ejercicios o más ayuda, no dudes en pedírmelo. ¡Buena suerte con tu práctica!
