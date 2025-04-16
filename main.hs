@@ -149,8 +149,14 @@ eliminar x (y:ys)
   | x == y = ys
   | otherwise = y : eliminar x ys
 
+esPar :: Int -> Bool
+esPar x = x `mod` 2 == 0
+
 main :: IO ()
-main = print (permutaciones [1, 2])
+main = print (filter esPar [1, 2, 3, 4, 5, 6])  -- Salida: [2, 4, 6]
+--main = print (filter (\x -> x > 3) [1, 2, 3, 4, 5])  -- Salida: [4, 5]
+--pertenece :: Int -> [Int] -> Bool
+--pertenece n xs = not (null (filter (== n) xs))
 
 --main = print(sumLista [1,2,3,4])
 --main = print(prodLista [1,2,3,4])
@@ -170,4 +176,15 @@ main = print (permutaciones [1, 2])
 --main = print(sublista [2,5] [1,2,5,7,23] )
 --main = print(esPalindromo [1,2,2,1] )
 --main = print (longitudCamino [(1, 2), (4, 6), (7, 10)])
---
+--main = print (permutaciones [1, 2])
+
+{-
+contarMayores :: Int -> Int -> Int
+contarMayores acc x = if x > 3 then acc + 1 else acc
+
+main :: IO ()
+main = print (foldl contarMayores 0 [1, 4, 2, 5, 3])  -- Salida: 2
+-}
+
+--main :: IO ()
+--main = print (foldl (+) 0 [1, 2, 3, 4])  -- Salida: 10
