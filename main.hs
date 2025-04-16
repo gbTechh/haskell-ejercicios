@@ -137,10 +137,11 @@ distancia :: (Int, Int) -> (Int, Int) -> Double
 distancia (x1, y1) (x2, y2) = 
   sqrt $ fromIntegral ((x2 - x1)^2 + (y2 - y1)^2)
 
-
+{-
 permutaciones :: [a] -> [[a]]
 permutaciones [] = [[]]                    -- Caso base: lista vacía
 permutaciones xs = [ x:ys | x <- xs, ys <- permutaciones (eliminar x xs) ]
+
 
 -- Función auxiliar para eliminar la primera ocurrencia de un elemento
 eliminar :: Eq a => a -> [a] -> [a]
@@ -149,11 +150,43 @@ eliminar x (y:ys)
   | x == y = ys
   | otherwise = y : eliminar x ys
 
-esPar :: Int -> Bool
-esPar x = x `mod` 2 == 0
+par :: Int -> Bool
+par x = x `mod` 2 == 0
+
+-}
+
+--EJERCICIOS CON MAX FILTER Y FOLDR FOLDL
+maximo2::[Int]->Int
+maximo2 [] = error "Lista vacía"
+maximo2 (as) = foldl max (head as) as
+
+positivos::[Int]->[Int]
+positivos as = filter (> 0) as
+
+sumarLista::[Int]->Int
+sumarLista as = foldl (+) 0 as
+
+contarSiImpar :: Int -> Int -> Int
+contarSiImpar acc x = if odd x then acc + 1 else acc
+
+contarImpares::[Int]->Int
+--contarImpares as = foldl (\acc x -> if x `mod` 2 /= 0 then acc + 1 else acc ) 0 as
+contarImpares xs = foldl contarSiImpar 0 xs
+
 
 main :: IO ()
-main = print (filter esPar [1, 2, 3, 4, 5, 6])  -- Salida: [2, 4, 6]
+main = do
+  print(contarImpares [1,2,3,4,5])
+  --print(sumarLista[1,2,3,4,0,1])
+  --print (positivos [-1,0, 1,-3,4])
+  --print(maximo2 [1,2,33,4,55]) 
+
+  --print (filter par [1, 2, 3, 4, 5, 6])  -- Salida: [2, 4, 6]
+
+
+
+
+
 --main = print (filter (\x -> x > 3) [1, 2, 3, 4, 5])  -- Salida: [4, 5]
 --pertenece :: Int -> [Int] -> Bool
 --pertenece n xs = not (null (filter (== n) xs))
