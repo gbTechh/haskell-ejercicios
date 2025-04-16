@@ -89,9 +89,68 @@ rotarLista::[Int]->Int->[Int]
 rotarLista as 0 = as
 rotarLista as n = rotarLista (last as : init as) (n-1)
 
-main :: IO ()
-main = print(rotarLista [1,2,3,4] 3)
+intercalar::[Int]->[Int]->[Int]
+intercalar [] [] = []
+intercalar as [] = as
+intercalar [] bs = bs
+intercalar (a:as) (b:bs) = a : b : intercalar as bs
 
+maximo::[Int]->Int
+maximo [a] = a
+maximo (a:as) 
+  | a > m = a
+  | otherwise = m
+  where m = maximo as
+
+pertenece::Int->[Int]->Bool
+pertenece n [] = False
+pertenece n [x] = n == x
+pertenece n (a:as)
+  | n == a = True
+  | otherwise = pertenece n as
+
+sublista::[Int]->[Int]->Bool
+sublista [] _ = True
+sublista _ [] = False
+sublista as bs
+  | length as > length bs = False
+  | take (length as) bs == as = True
+  | otherwise = sublista as (tail bs)
+
+invertirLista::[Int]->[Int]
+invertirLista [] = []
+invertirLista as = (last as) : invertirLista (init as)
+
+
+esPalindromo::[Int]->Bool
+esPalindromo as = invertirLista(as) == as
+ 
+
+longitudCamino :: [(Int, Int)] -> Double
+longitudCamino [] = 0.0                  -- Caso base: lista vacía, longitud 0
+longitudCamino [_] = 0.0                 -- Caso base: un solo punto, longitud 0
+longitudCamino ((x1, y1):(x2, y2):xs) = 
+  distancia (x1, y1) (x2, y2) + longitudCamino ((x2, y2):xs)
+
+-- Función auxiliar para calcular la distancia euclidiana
+distancia :: (Int, Int) -> (Int, Int) -> Double
+distancia (x1, y1) (x2, y2) = 
+  sqrt $ fromIntegral ((x2 - x1)^2 + (y2 - y1)^2)
+
+
+permutaciones :: [a] -> [[a]]
+permutaciones [] = [[]]                    -- Caso base: lista vacía
+permutaciones xs = [ x:ys | x <- xs, ys <- permutaciones (eliminar x xs) ]
+
+-- Función auxiliar para eliminar la primera ocurrencia de un elemento
+eliminar :: Eq a => a -> [a] -> [a]
+eliminar _ [] = []
+eliminar x (y:ys)
+  | x == y = ys
+  | otherwise = y : eliminar x ys
+
+main :: IO ()
+main = print (permutaciones [1, 2])
 
 --main = print(sumLista [1,2,3,4])
 --main = print(prodLista [1,2,3,4])
@@ -105,3 +164,10 @@ main = print(rotarLista [1,2,3,4] 3)
 --main = print(unirListasOrdenadas [1,2,5,6] [2,3,4])
 --main = print(eliminarDuplicados [1,2,2,2,2,3,4])
 --main = print(rotarLista [1,2,3,4] 3)
+--main = print(intercalar [1,2,3,4] [5,8,6,7])
+--main = print(maximo [11,2,3,666,444] )
+--main = print(pertenece 7 [1,2,5,7,23] )
+--main = print(sublista [2,5] [1,2,5,7,23] )
+--main = print(esPalindromo [1,2,2,1] )
+--main = print (longitudCamino [(1, 2), (4, 6), (7, 10)])
+--
